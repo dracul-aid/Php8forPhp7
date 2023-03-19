@@ -1,0 +1,27 @@
+{
+    "name": "draculaid/php8forphp7",
+    "description": "Php8forPhp7 - PHP 8 functions, and classes for PHP 7.4. Class for emulate enums",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Konstantin Marataev",
+            "email": "dracul.aid@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "require": {
+        "php": "~7.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
+}
