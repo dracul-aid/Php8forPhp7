@@ -9,14 +9,14 @@
         }
     ],
     "autoload": {
-        "classmap": [
-            "src/"
-        ]
+        "psr-4": {
+            "DraculAid\\Php8forPhp7\\": "src/"
+        }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "DraculAid\\Php8forPhp7\\tests\\": "tests/"
+        }
     },
     "require": {
         "php": ">=7.4.0"
