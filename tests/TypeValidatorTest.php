@@ -25,6 +25,11 @@ class TypeValidatorTest extends TestCase
         self::assertFalse(TypeValidator::validateOr(false, ['int'], false));
         self::assertFalse(TypeValidator::validateOr(true, ['int'], false));
 
+        self::assertTrue(TypeValidator::validateOr(false, ['false'], false));
+        self::assertTrue(TypeValidator::validateOr(true, ['true'], false));
+        self::assertFalse(TypeValidator::validateOr(false, ['true'], false));
+        self::assertFalse(TypeValidator::validateOr(true, ['false'], false));
+
         self::assertTrue(TypeValidator::validateOr(123, ['int'], false));
         self::assertFalse(TypeValidator::validateOr(123, ['integer'], false));
         self::assertFalse(TypeValidator::validateOr(123, ['number'], false));
@@ -44,6 +49,9 @@ class TypeValidatorTest extends TestCase
         self::assertTrue(TypeValidator::validateOr($this, [TypeValidatorTest::class], false));
         self::assertFalse(TypeValidator::validateOr(new \stdClass(), [TypeValidatorTest::class], false));
         self::assertFalse(TypeValidator::validateOr($this, [\stdClass::class], false));
+
+        self::assertTrue(TypeValidator::validateOr(false, ['null', 'false'], false));
+        self::assertTrue(TypeValidator::validateOr(true, ['int', 'true'], false));
 
         self::assertTrue(TypeValidator::validateOr(new \stdClass(), ['array', 'object'], false));
         self::assertTrue(TypeValidator::validateOr(new \stdClass(), ['array', \stdClass::class], false));

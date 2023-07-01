@@ -61,6 +61,11 @@ class TypeValidator
             return true;
         }
 
+        if (is_bool($value) && ((!$value && in_array('false', $typeList)) || ($value && in_array('true', $typeList))))
+        {
+            return true;
+        }
+
         if ($throw) throw new \TypeError("Value is not correct type");
 
         return false;
