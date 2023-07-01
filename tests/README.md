@@ -28,7 +28,7 @@ clear && php tests/run.php tests
 `docker-compose.yml` содержит все необходимое для проведения тестирования (PHP 7.4.x)
 
 ```
-cd phpmocker/tests
+cd Php8forPhp7/tests
 docker-compose build
 docker-compose up
 ```
