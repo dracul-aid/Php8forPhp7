@@ -16,12 +16,13 @@ namespace DraculAid\Php8forPhp7
         /**
          * Проверяет, начинается ли строка подстрокой
          *
-         * Описание в мануале: https://www.php.net/manual/ru/function.str-starts-with.php
-         *
          * @param   string   $haystack   Строка, в которой будет вестись поиск
          * @param   string   $needle     Подстрока, которую нужно найти
          *
          * @return  bool
+         *
+         * @link https://www.php.net/manual/ru/function.str-starts-with.php Описание в PHP документации
+         * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/functions.md Документация с нюансами работы функций имитаторов
          */
         function str_starts_with(string $haystack, string $needle): bool
         {

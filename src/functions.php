@@ -13,6 +13,8 @@
  * Файл содержит некоторые функции из PHP 8
  *
  * Все функции определяются дважды, для "глобального пространства имен" и в пространстве имен "DraculAid\Php8forPhp7"
+ *
+ * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/functions.md Документация с нюансами работы функций
  */
 
 // === enum_exists() ===

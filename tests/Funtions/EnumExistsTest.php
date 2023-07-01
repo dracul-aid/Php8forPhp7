@@ -18,6 +18,13 @@ class EnumExistsTest extends TestCase
     {
         require(dirname(__DIR__, 2) . '/src/functions/enum_exists.php');
 
+        if (class_exists(EnumExistsTest_NotEnumClass::class, true)) die('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        var_dump(EnumExistsTest_Enum::cases());
+
+
+        self::assertTrue(\DraculAid\Php8forPhp7\enum_exists(EnumExistsTest_Enum::class));
+        return;
+
         // * * *
 
         self::assertFalse(\DraculAid\Php8forPhp7\enum_exists(EnumExistsTest_NotEnumClass::class, false));

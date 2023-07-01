@@ -16,11 +16,12 @@ namespace DraculAid\Php8forPhp7
         /**
          * Проверяет, является ли переданный массив "списком" (т.е. массивом с числовыми ключами идущими "последовательно")
          *
-         * Описание в мануале: https://www.php.net/manual/ru/function.array-is-list.php
-         *
          * @param   array   $array
          *
          * @return  bool
+         *
+         * @link https://www.php.net/manual/ru/function.array-is-list.php Описание в PHP документации
+         * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/functions.md Документация с нюансами работы функций имитаторов
          */
         function array_is_list(array $array): bool
         {

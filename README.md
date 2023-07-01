@@ -35,7 +35,7 @@ composer require draculaid/php8forphp7
 `src/functions` и `src/functions.php` Объявляют (если не были объявлены ранее) не только функции в глобальном
 пространстве имен, но и "синонимы" в `DraculAid\Php8forPhp7` пространстве имен. Т.е. будут доступны две функции
 `array_is_list()` и `\DraculAid\Php8forPhp7::array_is_list()`. При этом:
-* `array_is_list()` Будет определена, если только уже не определена (другой библиотекой, или вы используете PHP8)
+* `array_is_list()` Будет определена, если только еще не определена (другой библиотекой, или вы используете PHP8)
 * `array_is_list()` в случае определения, будет проводить перевызов `\DraculAid\Php8forPhp7::array_is_list()`
 * `\DraculAid\Php8forPhp7::array_is_list()` будет доступна всегда, вне зависимости от версии PHP, которую вы используете
 

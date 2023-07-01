@@ -12,8 +12,11 @@
 if (!class_exists(WeakMap::class, false))
 {
     /**
-     * Класс, имитирующий WeakMap из PHP 8.0 - https://www.php.net/manual/ru/class.weakmap.php
+     * Класс, имитирующий WeakMap из PHP 8.0
      * В отличие от "настоящего WeakMap" - это факт создает ссылки на объекты-индексы
+     *
+     * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/class-weakmap.md Документация по классу-имитатору
+     * @link https://www.php.net/manual/ru/class.weakmap.php Документация по WeakMap из PHP 8.0
      */
     final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     {

@@ -14,10 +14,16 @@ namespace DraculAid\Php8forPhp7\Enums;
 /**
  * Абстрактный класс для создания типизированных (целое число) перечислений
  *
- * Варианты перечислений прописываются в @see static::ENUM_VARIANTS
+ * Варианты перечислений прописываются в {@see static::ENUM_VARIANTS}
+ *
+ * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/class-weakmap.md Документация по классу-имитатору
+ * @link https://www.php.net/manual/ru/class.weakmap.php Документация по WeakMap из PHP 8.0
  */
 abstract class AbstractEnumInt extends AbstractEnum implements \IntBackedEnum
 {
+    /**
+     * @inheritDoc
+     */
     public static function from(int $value): \IntBackedEnum
     {
         static::__create_cases();
@@ -27,6 +33,9 @@ abstract class AbstractEnumInt extends AbstractEnum implements \IntBackedEnum
         return static::$__enum_names_by_value[static::class];
     }
 
+    /**
+     * @inheritDoc
+     */
     public static function tryFrom(int $value): ?\IntBackedEnum
     {
         static::__create_cases();

@@ -20,14 +20,15 @@ if (!interface_exists(\UnitEnum::class, false))
 /**
  * Абстрактный класс для создания "Перечислений" максимально похожих на перечисления PHP8.1
  *
- * Об перечислениях: https://www.php.net/manual/ru/language.enumerations.overview.php
- *
  * Все создаваемые вами перечисления должны наследовать одному из абстрактных классов:
- * @see AbstractEnum             Для "нетепизированных" перечислений
- * @see AbstractEnumInt      Для создания перечислений с значениями ввиде "целых чисел"
- * @see AbstractEnumString   Для создания перечислений с значениями ввиде "строк"
+ * <br>{@see AbstractEnum}         Для "нетепизированных" перечислений
+ * <br>{@see AbstractEnumInt}      Для создания перечислений со значениями ввиде "целых чисел"
+ * <br>{@see AbstractEnumString}   Для создания перечислений со значениями ввиде "строк"
  *
- * Варианты перечислений прописываются в @see static::__ENUM_VARIANTS
+ * Варианты перечислений прописываются в {@see static::__ENUM_VARIANTS}
+ *
+ * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/enums.md Документация по классу-эмулятору перечислений
+ * @link https://www.php.net/manual/ru/language.enumerations.overview.php О Перечислениях в PHP8.1
  *
  * "Виртуальные свойства", @see self::__get()
  * @property string $name [readonly] Вернет имя варианта перечисления
@@ -39,10 +40,10 @@ abstract class AbstractEnum implements \UnitEnum
      * Используется для определения вариантов перечислений (переопределяется в каждом классе-перечислении)
      *
      * Представляет собой массив, в котором:
-     *   * Ключи: имена имен "вариантов перечислений" @see static::$__variant_name
-     *   * Значения: значения перечислений
-     *       > NULL - для НЕ типизированных перечислений
-     *       > int|string - для типизированных перечислений
+     * <br>+ Ключи: имена имен "вариантов перечислений" @see static::$__variant_name
+     * <br>+ Значения: значения перечислений
+     * <br>....> NULL - для НЕ типизированных перечислений
+     * <br>....> int|string - для типизированных перечислений
      */
     protected const __ENUM_VARIANTS = [];
 
@@ -50,9 +51,9 @@ abstract class AbstractEnum implements \UnitEnum
      * Хранит все созданные варианты перечислений
      *
      * Представляет собой 2-ух мерный массив:
-     *    * Индекс 1ур: [string] имя класса-перечисления
-     *    * Индекс 2ур: [string] имя "варианта перечисления"
-     *    * Значение: [object] объект-перечисление @see AbstractEnum
+     * <br>+ Индекс 1ур: [string] имя класса-перечисления
+     * <br>+ Индекс 2ур: [string] имя "варианта перечисления"
+     * <br>+ Значение: [object] объект-перечисление {@see AbstractEnum}
      */
     protected static array $__enum_variants = [];
 
@@ -60,23 +61,25 @@ abstract class AbstractEnum implements \UnitEnum
      * Хранит все имена "Вариантов перечислений" по их "занчениям" (список "значения перечислений" к "именам вариантов перечислений")
      *
      * Представляет собой 2-ух мерный массив:
-     *    * Индекс 1ур: [string] имя класса-перечисления
-     *    * Индекс 2ур: [int|string] строка или число варианта перечисления
-     *    * Значение: [string] имя "варианта перечисления"
+     * <br>+ Индекс 1ур: [string] имя класса-перечисления
+     * <br>+ Индекс 2ур: [int|string] строка или число варианта перечисления
+     * <br>+ Значение: [string] имя "варианта перечисления"
      */
     protected static array $__enum_names_by_value = [];
 
     /**
      * Имя варианта перечисления
      *
-     * Представляет собой ключ в @see static::__ENUM_VARIANTS
+     * Представляет собой ключ в {@see static::__ENUM_VARIANTS}
      */
     protected string $__variant_name;
 
     /**
+     * Создает перечисление
+     *
      * @param   string   $index   Имя варианта перечисления
      *
-     * $index представляет собой ключ из @see static::__ENUM_VARIANTS
+     * $index представляет собой ключ из {@see static::__ENUM_VARIANTS}
      *
      * @throws  \LogicException  Если попытка создания "варианта перечисления" который не может быть в данном перечислении
      */

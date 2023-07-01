@@ -17,15 +17,16 @@ namespace DraculAid\Php8forPhp7
          * Проверяет, загружено ли перечисление (проверяет, является ли указанная строка, классом, загружен ли этот класс
          * и является ли он перечислением)
          *
-         * Описание в мануале: https://www.php.net/manual/ru/function.enum-exists.php
-         *
-         * Классы считаются перечислениями, если они имплементируют интерфейс @see \UnitEnum
-         * Для создания перечислений @see \DraculAid\Php8forPhp7\Enums\AbstractEnum
+         * Классы считаются перечислениями, если они имплементируют интерфейс {@see \UnitEnum}
+         * Для создания перечислений {@see \DraculAid\Php8forPhp7\Enums\AbstractEnum}
          *
          * @param   string   $enum       Полное имя класса-перечисления
          * @param   bool     $autoload   Нужно ли провести автозагрузку класса (если он не был загружен)
          *
          * @return  bool
+         *
+         * @link https://www.php.net/manual/ru/function.enum-exists.php Описание в PHP документации
+         * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/functions.md Документация с нюансами работы функций имитаторов
          */
         function enum_exists(string $enum, bool $autoload = true): bool
         {

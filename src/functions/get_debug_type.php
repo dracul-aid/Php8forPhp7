@@ -14,15 +14,16 @@ namespace DraculAid\Php8forPhp7
     if (!function_exists('DraculAid\Php8forPhp7\get_debug_type'))
     {
         /**
-         * Возвращает имя типа переменной в виде, подходящем для отладки
-         *
-         * Описание в мануале: https://www.php.net/manual/ru/function.get-debug-type
+         * Возвращает имя типа переменной в виде, подходящем для отладки (повторяет типы данных PHP)
          *
          * @param   mixed   $value   Значение, для которого нужно получить тип
          *
          * @return  string   Вернет строковое представление типа
          *
          * @throws  \RuntimeException  Если не удалось определить тип переменной (по идее такого быть не может, оставлено "на всякий пожарный")
+         *
+         * @link https://www.php.net/manual/ru/function.get-debug-type Описание в PHP документации
+         * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/functions.md Документация с нюансами работы функций имитаторов
          */
         function get_debug_type($value): string
         {

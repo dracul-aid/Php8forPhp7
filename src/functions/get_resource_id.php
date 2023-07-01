@@ -16,13 +16,14 @@ namespace DraculAid\Php8forPhp7
         /**
          * Возвращает числовое представление ресурса (преобразует ресурс к целому числу)
          *
-         * Описание в мануале: https://www.php.net/manual/ru/function.get-resource-id.php
-         *
          * @param   resource   $resource   Строка, в которой будет вестись поиск
          *
          * @return  int
          *
          * @throws  \TypeError   Если был передан не ресурс
+         *
+         * @link https://www.php.net/manual/ru/function.get-resource-id.php Описание в PHP документации
+         * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/functions.md Документация с нюансами работы функций имитаторов
          */
         function get_resource_id($resource): int
         {
