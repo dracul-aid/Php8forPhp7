@@ -9,18 +9,30 @@
 
 **Подключение всех функций**
 ```php
+// --- подключение всех функций с помощью агрузчика ---
+DraculAid\Php8forPhp7\LoaderPhp8Lib::loadAllFunctions();
+
+// * * *
+
+// --- Подключение через вызова файла, сборщика кода функций ---
+
 // путь до библиотеки
 $pathPhp8forPhp7 = 'vendor/DraculAid/Php8forPhp7';
-
 // подключение класса
 require_once($pathPhp8forPhp7 . '/src/functions.php');
 ```
 
 **Подключение только array_is_list() и `/DraculAid/Php8forPhp7/array_is_list()`**
 ```php
+// подключение с помощью загрузчика
+DraculAid\Php8forPhp7\LoaderPhp8Lib::loadFunction('array_is_list');
+
+// * * *
+
+// --- Подключение файла с кодом функции ---
+
 // путь до библиотеки
 $pathPhp8forPhp7 = 'vendor/DraculAid/Php8forPhp7';
-
 // подключение класса
 require_once($pathPhp8forPhp7 . '/src/functions/array_is_list.php');
 ```

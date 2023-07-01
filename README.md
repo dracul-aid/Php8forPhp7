@@ -40,6 +40,9 @@ composer require draculaid/php8forphp7
 * `\DraculAid\Php8forPhp7::array_is_list()` будет доступна всегда, вне зависимости от версии PHP, которую вы используете
 
 `FunctionsTest.php` Содержит класс с функциями для валидации составных типов данных (например `string|array` или `A&B`)
+[подробнее в документации](documentation-ru/type-validator.md).
+
+`LoaderPhp8Lib.php` Содержит класс облегчающий загрузку необходимого функционала, [подробнее в документации](documentation-ru/loader.md).
 
 ## Реализованно
 
