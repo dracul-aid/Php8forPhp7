@@ -13,7 +13,7 @@
 
 ## Установка
 
-Установка с помощью композера:
+Установка с помощью композера ([packagist.org](https://packagist.org/packages/draculaid/php8forphp7)):
 ```console
 composer require draculaid/php8forphp7
 ```
