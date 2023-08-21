@@ -56,11 +56,13 @@ class TypeValidator
 
         // * * *
 
+        // Проверка базовых типов и проверка полного соответствия имени класса для объекта
         if (in_array($varType, $typeList) || ($varClassName !== '' && in_array($varClassName, $typeList)))
         {
             return true;
         }
 
+        // логические псевдотипы
         if (is_bool($value) && ((!$value && in_array('false', $typeList)) || ($value && in_array('true', $typeList))))
         {
             return true;

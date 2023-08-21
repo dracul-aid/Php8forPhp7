@@ -18,6 +18,11 @@
 composer require draculaid/php8forphp7
 ```
 
+Для обновления пакета
+```console
+composer update draculaid/php8forphp7
+```
+
 Вы также можете полностью скопировать содержимое каталога `src`, библиотека Php8forPhp7 включает в себя все
 необходимое для ее работы (т.е. не имеет внешних зависимостей)
 
