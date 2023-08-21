@@ -74,6 +74,14 @@ class TypeValidator
             return true;
         }
 
+        // проверка iterable
+        if (is_iterable($value) && in_array('iterable', $typeList))
+        {
+            return true;
+        }
+
+        // * * *
+
         if ($throw) throw new \TypeError("Value is not correct type");
 
         return false;

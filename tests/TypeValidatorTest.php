@@ -66,6 +66,12 @@ class TypeValidatorTest extends TestCase
         self::assertFalse(TypeValidator::validateOr(new \stdClass(), [TypeValidatorTest::class], false));
         self::assertFalse(TypeValidator::validateOr($this, [\stdClass::class], false));
 
+        // Проверки для "перечисляемого"
+        self::assertTrue(TypeValidator::validateOr([], ['iterable'], false));
+        self::assertTrue(TypeValidator::validateOr(['123'], ['iterable'], false));
+        self::assertTrue(TypeValidator::validateOr((function (): \Generator {yield 123;})(), ['iterable'], false));
+        self::assertFalse(TypeValidator::validateOr(new \stdClass(), ['iterable'], false));
+
         // Проверки для "вызываемого"
         self::assertTrue(TypeValidator::validateOr('in_array', ['callable'], false));
         self::assertTrue(TypeValidator::validateOr([new \DateTime(), 'format'], ['callable'], false));
