@@ -29,7 +29,7 @@ if (!function_exists('get_debug_type'))
  * @link https://github.com/dracul-aid/Php8forPhp7/blob/master/documentation-ru/type-validator.md Документация по работе с валидатором
  * @link https://www.php.net/manual/ru/language.types.declarations.php#language.types.declarations.composite Документация PHP о составных типах данных
  */
-class TypeValidator
+final class TypeValidator
 {
     /** Базовые типы данных PHP */
     public const BASIC_TYPE = ['null', 'bool', 'int', 'float', 'string', 'array', 'resource', 'object'];
