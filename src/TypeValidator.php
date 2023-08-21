@@ -135,6 +135,18 @@ final class TypeValidator
 
         foreach ($typeList as $type)
         {
+            if ($type === 'callable' && !is_callable($value))
+            {
+                if ($throw) throw new \TypeError("Value is not correct type");
+                return false;
+            }
+
+            if ($type === 'iterable' && !is_iterable($value))
+            {
+                if ($throw) throw new \TypeError("Value is not correct type");
+                return false;
+            }
+
             if (!is_a($value, $type))
             {
                 if ($throw) throw new \TypeError("Value is not correct type");
