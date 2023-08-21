@@ -20,6 +20,8 @@ if (!function_exists('get_debug_type'))
 /**
  * Класс для валидации составных типов данных
  *
+ * (!) Этот функционал не может корректно отработать с типами 'never', 'void', 'self', 'static', 'parent'
+ *
  * Оглавление:
  * <br>{@see TypeValidator::validateOr()} Валидирует по "Одному из" типов данных (т.е. A|B|C)
  * <br>{@see TypeValidator::validateAnd()} Валидирует объекты по точному совпадению со всеми типами данных (т.е. A&B&C)
@@ -29,6 +31,12 @@ if (!function_exists('get_debug_type'))
  */
 class TypeValidator
 {
+    /** Базовые типы данных PHP */
+    public const BASIC_TYPE = ['null', 'bool', 'int', 'float', 'string', 'array', 'resource', 'object'];
+
+    /** Псевдотипы PHP */
+    public const SIMULATOR_TYPE = ['false', 'true', 'callable', 'iterable', 'mixed'];
+
     /**
      * Проверяет, что переданное значение удовлетворяет одному из переданных типов данных. В случае провала может
      * выбросить {@see \TypeError}. Т.е. функция используется для проверки вида <code>A|B|C</code>
@@ -78,6 +86,20 @@ class TypeValidator
         if (is_iterable($value) && in_array('iterable', $typeList))
         {
             return true;
+        }
+
+        // для объектов поиск родительских классов
+        if (is_object($value))
+        {
+            foreach ($typeList as $type)
+            {
+                if (
+                    in_array($type, self::BASIC_TYPE)
+                    || in_array($type, self::SIMULATOR_TYPE)
+                ) continue;
+
+                if (is_subclass_of($value, $type)) return true;
+            }
         }
 
         // * * *

@@ -79,6 +79,10 @@ class TypeValidatorTest extends TestCase
         self::assertFalse(TypeValidator::validateOr('is_is_string_not_function', ['callable'], false));
         self::assertFalse(TypeValidator::validateOr([new \DateTime(), 'format', 'r'], ['callable'], false));
 
+        // Проверки для имен классов и интерфейсов
+        self::assertTrue(TypeValidator::validateOr(new \DateTime(), [\DateTimeInterface::class], false));
+        self::assertFalse(TypeValidator::validateOr(new \DateTime(), [\Throwable::class], false));
+
         // * * * Проверка срабатывания, если указано несколько типов
 
         self::assertTrue(TypeValidator::validateOr(false, ['null', 'false'], false));
