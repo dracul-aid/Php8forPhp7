@@ -66,6 +66,13 @@ class TypeValidatorTest extends TestCase
         self::assertFalse(TypeValidator::validateOr(new \stdClass(), [TypeValidatorTest::class], false));
         self::assertFalse(TypeValidator::validateOr($this, [\stdClass::class], false));
 
+        // Проверки для "вызываемого"
+        self::assertTrue(TypeValidator::validateOr('in_array', ['callable'], false));
+        self::assertTrue(TypeValidator::validateOr([new \DateTime(), 'format'], ['callable'], false));
+        self::assertTrue(TypeValidator::validateOr(function(){}, ['callable'], false));
+        self::assertFalse(TypeValidator::validateOr('is_is_string_not_function', ['callable'], false));
+        self::assertFalse(TypeValidator::validateOr([new \DateTime(), 'format', 'r'], ['callable'], false));
+
         // * * * Проверка срабатывания, если указано несколько типов
 
         self::assertTrue(TypeValidator::validateOr(false, ['null', 'false'], false));

@@ -68,6 +68,12 @@ class TypeValidator
             return true;
         }
 
+        // проверка callable
+        if (is_callable($value) && in_array('callable', $typeList))
+        {
+            return true;
+        }
+
         if ($throw) throw new \TypeError("Value is not correct type");
 
         return false;
